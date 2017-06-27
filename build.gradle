@@ -25,9 +25,10 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+    compile files('libs/jackson-core-2.2.3.jar')
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("com.fasterxml.jackson.core:jackson-databind:2.9.0.pr4")
+    compile("com.fasterxml.jackson.core:jackson-core:2.2.3")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit")
 }
