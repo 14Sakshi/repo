@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,8 @@ public class HelloWorldController {
         
     	Map<String,String> myMap = new HashMap<String, String>();
         myMap=o.readValue(mapData,HashMap.class);
-        return new WebhookResponse("Hello! "+myMap.get("result").toString(), "Text " + obj);
+        String key =myMap.keySet().toArray()[0].toString();
+        
+        return new WebhookResponse("Hello! "+key, "Text " + obj);
     }//webhook
 }
