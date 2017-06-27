@@ -38,6 +38,6 @@ public class HelloWorldController {
         //Parameter on 5th position
         String[] res1=res[5].split("{");
          
-        return new WebhookResponse("Hello! "+res1[1], "Text " + obj);
+        return new WebhookResponse("Hello! "+res1[0], "Text " + obj);
     }//webhook
 }
