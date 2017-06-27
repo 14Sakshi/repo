@@ -38,6 +38,12 @@ public class HelloWorldController {
         String key4 =myMap.keySet().toArray()[4].toString();
         String key5 =myMap.keySet().toArray()[5].toString();
         String val=myMap.get(key0);
-        return new WebhookResponse("Hello! "+key0+"-->"+key1+"-->"+key2+"-->"+key3+"-->"+key4+"--->"+key5+"-->"+val, "Text " + obj);
+        
+        ObjectMapper o1=new ObjectMapper();
+        byte[] mapData1 = val.getBytes();
+        Map<String,String> myMap1 = new HashMap<String, String>();
+        myMap1=o1.readValue(mapData1,HashMap.class);
+        
+        return new WebhookResponse("Hello! "+key0+"-->"+key1+"-->"+key2+"-->"+key3+"-->"+key4+"--->"+key5+"-->"+myMap1.size(), "Text " + obj);
     }//webhook
 }
