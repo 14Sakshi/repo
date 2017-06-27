@@ -37,7 +37,7 @@ public class HelloWorldController {
         String key3 =myMap.keySet().toArray()[3].toString();
         String key4 =myMap.keySet().toArray()[4].toString();
         String key5 =myMap.keySet().toArray()[5].toString();
-        String val=myMap.get(key1);
+        String val=myMap.get(key0);
         return new WebhookResponse("Hello! "+key0+"-->"+key1+"-->"+key2+"-->"+key3+"-->"+key4+"--->"+key5+"-->"+val, "Text " + obj);
     }//webhook
 }
