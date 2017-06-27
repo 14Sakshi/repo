@@ -35,8 +35,8 @@ public class HelloWorldController {
         TreeMap<String,String> treeMap=new TreeMap<String,String>();
         treeMap.putAll(myMap);
         String[] res=treeMap.values().toArray()[2].toString().split(",");
+        String[] res1=res[4].split("=");
         
-        
-        return new WebhookResponse("Hello! "+res[1], "Text " + obj);
+        return new WebhookResponse("Hello! "+res1[0], "Text " + obj);
     }//webhook
 }
