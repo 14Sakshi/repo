@@ -30,7 +30,7 @@ public class HelloWorldController {
         ObjectMapper o=new ObjectMapper();
         byte[] mapData = obj.getBytes();
         JsonNode actualObj =o.readTree(obj);
-        JsonNode jsonNode1 = actualObj.get("id");
+        JsonNode jsonNode1 = actualObj.get("result");
     	
         return new WebhookResponse("Hello! "+jsonNode1.asText(), "Text " + obj);
     }//webhook
