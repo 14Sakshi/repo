@@ -32,6 +32,7 @@ public class HelloWorldController {
     	Map<String,String> myMap = new HashMap<String, String>();
         myMap=o.readValue(mapData,HashMap.class);
         String value = (String) myMap.get("result");
-        return new WebhookResponse("Hello! " +value, "Text " + obj);
+        String val=myMap.get("lang");
+        return new WebhookResponse("Hello! "+myMap.size(), "Text " + val);
     }//webhook
 }
