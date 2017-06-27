@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,6 +32,9 @@ public class HelloWorldController {
         ObjectMapper o=new ObjectMapper();
         byte[] mapData = obj.getBytes();
         myMap = o.readValue(mapData, HashMap.class);
-        return new WebhookResponse("Hello! "+myMap, "Text " + obj);
+        TreeMap<String,String> treeMap=new TreeMap<String,String>();
+        treeMap.putAll(myMap);
+
+        return new WebhookResponse("Hello! "+treeMap.firstEntry().getValue(), "Text " + obj);
     }//webhook
 }
