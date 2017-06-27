@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -28,22 +29,9 @@ public class HelloWorldController {
         System.out.println(obj);
         ObjectMapper o=new ObjectMapper();
         byte[] mapData = obj.getBytes();
-        
-    	Map<String,String> myMap = new HashMap<String, String>();
-        myMap=o.readValue(mapData,HashMap.class);
-        String key0 =myMap.keySet().toArray()[0].toString();
-        String key1 =myMap.keySet().toArray()[1].toString();
-        String key2 =myMap.keySet().toArray()[2].toString();
-        String key3 =myMap.keySet().toArray()[3].toString();
-        String key4 =myMap.keySet().toArray()[4].toString();
-        String key5 =myMap.keySet().toArray()[5].toString();
-        String val=myMap.get(key0);
-        
-        ObjectMapper o1=new ObjectMapper();
-        byte[] mapData1 = val.getBytes();
-        Map<String,String> myMap1 = new HashMap<String, String>();
-        myMap1=o1.readValue(mapData1,HashMap.class);
-        
-        return new WebhookResponse("Hello! "+key0+"-->"+key1+"-->"+key2+"-->"+key3+"-->"+key4+"--->"+key5+"-->"+myMap1.size(), "Text " + obj);
+        JsonNode actualObj =o.readTree(obj);
+        JsonNode jsonNode1 = actualObj.get("id");
+    	
+        return new WebhookResponse("Hello! "+jsonNode1.asText(), "Text " + obj);
     }//webhook
 }
