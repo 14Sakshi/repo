@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 
 @Controller
@@ -19,6 +21,7 @@ public class HelloWorldController {
 
         System.out.println(obj);
         Date d=new Date();
+        ObjectMapper o=new ObjectMapper();
         return new WebhookResponse("Hello! " + d, "Text " + obj);
     }//webhook
 }
