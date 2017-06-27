@@ -33,6 +33,7 @@ public class HelloWorldController {
         byte[] mapData = obj.getBytes();
         JsonNode rootNode = o.readTree(mapData);
         JsonNode resultNode = rootNode.path("result");
+        String res=resultNode.toString();
         //myMap = o.readValue(mapData, HashMap.class);
         //TreeMap<String,String> treeMap=new TreeMap<String,String>();
         //treeMap.putAll(myMap);
@@ -44,6 +45,6 @@ public class HelloWorldController {
         	param.put(res1[i],res1[i+1]);
         }//for*/
          
-        return new WebhookResponse("Hello! "+resultNode, "Text " + obj);
+        return new WebhookResponse("Hello! "+res, "Text " + obj);
     }//webhook
 }
