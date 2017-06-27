@@ -29,7 +29,7 @@ public class HelloWorldController {
         System.out.println(obj);
         ObjectMapper o=new ObjectMapper();
         byte[] mapData = obj.getBytes();
-        Res emp = o.readValue(obj, Res.class);
+        Res emp = o.readValue(mapData, Res.class);
         return new WebhookResponse("Hello! "+emp.toString(), "Text " + obj);
     }//webhook
 }
