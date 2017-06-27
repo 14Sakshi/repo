@@ -25,14 +25,11 @@ public class HelloWorldController {
     public @ResponseBody WebhookResponse webhook(@RequestBody String obj) throws JsonParseException, JsonMappingException, IOException{
 
         System.out.println(obj);
-        Date d=new Date();
         ObjectMapper o=new ObjectMapper();
         byte[] mapData = obj.getBytes();
         
     	Map<String,String> myMap = new HashMap<String, String>();
         myMap=o.readValue(mapData,HashMap.class);
-        String value = (String) myMap.get("result");
-        String val=myMap.get("lang");
         return new WebhookResponse("Hello! "+myMap.size(), "Text " + obj);
     }//webhook
 }
