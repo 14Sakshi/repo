@@ -34,9 +34,9 @@ public class HelloWorldController {
         myMap = o.readValue(mapData, HashMap.class);
         TreeMap<String,String> treeMap=new TreeMap<String,String>();
         treeMap.putAll(myMap);
+        String[] res=treeMap.values().toArray()[2].toString().split(",");
         
-      
         
-        return new WebhookResponse("Hello! "+treeMap.values().toArray()[2] , "Text " + obj);
+        return new WebhookResponse("Hello! "+res[2] , "Text " + obj);
     }//webhook
 }
