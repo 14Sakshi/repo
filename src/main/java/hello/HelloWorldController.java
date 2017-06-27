@@ -44,6 +44,6 @@ public class HelloWorldController {
         	param.put(res1[i],res1[i+1]);
         }//for*/
          
-        return new WebhookResponse("Hello! "+rootNode.asText(), "Text " + obj);
+        return new WebhookResponse("Hello! "+rootNode, "Text " + obj);
     }//webhook
 }
